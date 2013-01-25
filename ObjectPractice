@@ -1,0 +1,41 @@
+/**
+ * @author raymond
+ */
+
+var Converter = (function(){
+
+  var x = 0;
+	
+	function Converter(initX){
+		x = initX;
+	
+	}
+	function double(value){
+		return value;
+	}
+	Converter.prototype.convert = function(func){
+		var result = double(x);
+		return func(result);
+	}
+}
+
+	return Converter;
+})();
+
+
+
+
+
+$(document).ready(function() {	
+	"use strict";
+	var Converter = new Converter();
+	var feet = convert(function milesToFeet(miles){
+	return miles * 5280;
+});
+	var yards = convert(function milesToFeet(miles){
+	return miles * (5280/3);
+});
+
+	$("#feet").html(feet);
+	$("#yards").html(yards);
+});
